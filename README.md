@@ -14,7 +14,7 @@
 
 ### 🛠 技能
 
-- Copilot、Trae、Cursor
+- ？
 ---
 
 ### 📊 GitHub 统计
