@@ -6,7 +6,7 @@
 
 - 🔭 你好呀！💡
 
-- 🤔 这里是Zwei的Github，我是信息安全专业的大三学生，正在学习德语...
+- 🤔 这里是Zwei的Github...
 
 - ⚡ Fun fact: 喜欢鼓捣没用的小项目，用 Copilot 写代码
 
