@@ -2,9 +2,12 @@ name: Generate Readme Stats
 
 on:
   schedule:
-    # 每天 UTC 0 点（北京时间 8 点）自动更新
     - cron: '0 0 * * *'
-  workflow_dispatch: # 支持手动触发
+  workflow_dispatch:
+
+# 必须显式声明写权限，解决 403 问题
+permissions:
+  contents: write
 
 jobs:
   publish:
@@ -12,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. 生成个人统计卡片 (stats)
+      # 1. 生成个人统计卡片
       - name: Generate Stats Card
         uses: stats-organization/github-readme-stats-action@v1
         with:
@@ -26,7 +29,7 @@ jobs:
             include_all_commits: true
             count_private: true
 
-      # 2. 生成常用语言卡片 (top-langs)
+      # 2. 生成常用语言卡片
       - name: Generate Top Languages Card
         uses: stats-organization/github-readme-stats-action@v1
         with:
@@ -38,11 +41,9 @@ jobs:
             hide_border: true
             layout: compact
 
-      # 3. 提交并推送到仓库
+      # 3. 提交并自动推送
       - name: Commit and Push SVG
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add generated-stats/
-          git diff-index --quiet HEAD || git commit -m "chore: update readme stats [skip ci]"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update readme stats [skip ci]"
+          file_pattern: 'generated-stats/*.svg'
