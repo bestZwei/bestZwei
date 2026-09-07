@@ -20,7 +20,6 @@
 ### 📊 GitHub 统计
 
 <p align="center">
-  <img height="130px" src="./generated-stats/overview.svg" alt="bestZwei's GitHub Stats">
   <img height="130px" src="./generated-stats/languages.svg" alt="Most Used Languages">
 </p>
 
