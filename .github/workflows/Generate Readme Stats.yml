@@ -1,0 +1,36 @@
+name: Generate Readme Stats
+
+on:
+  schedule:
+    # 每天 UTC 0 点（北京时间 8 点）自动更新
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 支持在 Actions 页面手动触发
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 使用 Action 本地生成统计卡片 SVG
+      - uses: stats-organization/github-readme-stats-action@v1
+        with:
+          username: bestZwei
+          # 使用内置的 GITHUB_TOKEN，无需额外配置 secrets
+          token: ${{ secrets.GITHUB_TOKEN }}
+          output-folder: generated-stats
+          # 传入你喜爱的配置参数
+          card-config: |
+            theme: graywhite
+            hide_border: true
+            show_icons: true
+            count_private: true
+
+      # 将生成的 SVG 提交并推送到仓库
+      - name: Commit and Push SVG
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add generated-stats/
+          git diff-index --quiet HEAD || git commit -m "chore: update readme stats [skip ci]"
+          git push
