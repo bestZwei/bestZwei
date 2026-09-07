@@ -20,8 +20,8 @@
 ### 📊 GitHub 统计
 
 <p align="center">
-  <img height="130px" src="https://github-readme-stats.vercel.app/api?username=bestZwei&hide_title=true&show_icons=true&hide=issues&include_all_commits=true&count_private=true&theme=graywhite&hide_border=true&bg_color=45,ff7979,ffd479,fffc79,73fa79" alt="bestZwei's GitHub Stats">
-  <img height="130px" src="https://github-readme-stats.vercel.app/api/top-langs?username=bestZwei&hide_title=true&layout=compact&theme=graywhite&hide_border=true&bg_color=45,fffc79,73fa79,75f0db" alt="Most Used Languages">
+  <img height="130px" src="./generated-stats/overview.svg" alt="bestZwei's GitHub Stats">
+  <img height="130px" src="./generated-stats/languages.svg" alt="Most Used Languages">
 </p>
 
 ---
