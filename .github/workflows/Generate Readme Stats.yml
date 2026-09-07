@@ -4,7 +4,7 @@ on:
   schedule:
     # 每天 UTC 0 点（北京时间 8 点）自动更新
     - cron: '0 0 * * *'
-  workflow_dispatch: # 支持在 Actions 页面手动触发
+  workflow_dispatch: # 支持手动触发
 
 jobs:
   publish:
@@ -12,21 +12,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 使用 Action 本地生成统计卡片 SVG
-      - uses: stats-organization/github-readme-stats-action@v1
+      # 1. 生成个人统计卡片 (stats)
+      - name: Generate Stats Card
+        uses: stats-organization/github-readme-stats-action@v1
         with:
-          username: bestZwei
-          # 使用内置的 GITHUB_TOKEN，无需额外配置 secrets
+          card: stats
+          path: generated-stats/overview.svg
           token: ${{ secrets.GITHUB_TOKEN }}
-          output-folder: generated-stats
-          # 传入你喜爱的配置参数
-          card-config: |
+          options: |
             theme: graywhite
             hide_border: true
             show_icons: true
+            include_all_commits: true
             count_private: true
 
-      # 将生成的 SVG 提交并推送到仓库
+      # 2. 生成常用语言卡片 (top-langs)
+      - name: Generate Top Languages Card
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: top-langs
+          path: generated-stats/languages.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          options: |
+            theme: graywhite
+            hide_border: true
+            layout: compact
+
+      # 3. 提交并推送到仓库
       - name: Commit and Push SVG
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
