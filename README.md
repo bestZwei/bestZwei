@@ -8,7 +8,11 @@
 
 - 🤔 这里是Zwei的Github...
 
-- ⚡ Fun fact: 喜欢鼓捣没用的小项目，用 Copilot 写代码
+- ⚡ Fun fact: 喜欢鼓捣没用的小项目，用 AI 写代码
+
+- 🎮 三角洲行动、军棋
+
+- 🏫 本科毕业于 [@GDUT](https://github.com/gdut) 计算机学院，现为 [TUM](https://github.com/tum) Asia Campus 的不知名专业的在读生。
 
 ---
 
