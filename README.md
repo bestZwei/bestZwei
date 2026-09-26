@@ -12,7 +12,7 @@
 
 - 🎮 三角洲行动、军棋
 
-- 🏫 本科毕业于 [@GDUT](https://github.com/gdut) 计算机学院，现为 [TUM](https://github.com/tum) Asia Campus 的不知名专业的在读生。
+- 🏫 本科毕业于 [@GDUT](https://github.com/gdut) 计算机学院，现为 [@TUM](https://github.com/tum) Asia Campus 的不知名专业的在读生。
 
 ---
 
